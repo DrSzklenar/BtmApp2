@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <efcore context-namespace="Business" namespace="Business" p1:name="cnBusiness" p1:Guid="2336206b-6403-4636-9a15-4b0a5723b0b3" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
   <class name="Customer" entity-set="Customers" p1:Guid="81166ef7-b925-4e45-88da-0daa61bdbbc2">
-    <id name="customerId" type="Int16" p1:ValidateRequired="true" p1:Guid="fddce4fb-0469-44c8-821c-b87c6c90bd89">
-      <column name="" />
+    <id name="customerId" type="Int16" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="fddce4fb-0469-44c8-821c-b87c6c90bd89">
+      <column name="" not-null="False" unique="True" />
     </id>
     <property name="name" type="String" p1:ValidateRequired="true" p1:Guid="e6224578-a840-4fb5-9103-b92027011bc9">
       <column name="" />
@@ -15,7 +15,7 @@
     </property>
   </class>
   <class name="Product" entity-set="Products" p1:Guid="8035f4c0-50c1-48fe-b375-23df5a56ba3b">
-    <id name="productId" type="Int16" p1:ValidateRequired="true" p1:Guid="8e070ad8-e765-4da5-9772-6fed02b7ee3d">
+    <id name="productId" type="Int16" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="8e070ad8-e765-4da5-9772-6fed02b7ee3d">
       <column name="" />
     </id>
     <property name="name" type="String" p1:ValidateRequired="true" p1:Guid="ae707e61-7788-4098-9b3f-2aade9a496d8">
@@ -26,7 +26,7 @@
     </property>
   </class>
   <class name="Transaction" entity-set="Transactions" p1:Guid="0ab02702-2e03-43a6-b240-28245d6d7995">
-    <id name="transactionId" type="Int16" p1:ValidateRequired="true" p1:Guid="0ad96ea3-c867-4bea-8f9d-be787bb56cd5">
+    <id name="transactionId" type="Int16" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="0ad96ea3-c867-4bea-8f9d-be787bb56cd5">
       <column name="" />
     </id>
     <property name="customerId" type="Int16" p1:ValidateRequired="true" p1:Guid="37d775c9-090a-4896-aa6a-fceda1d6f80c">
@@ -35,18 +35,15 @@
     <property name="date" type="DateTime" p1:ValidateRequired="true" p1:Guid="ce22cbf6-2354-4b77-b978-55052ab45a86">
       <column name="" />
     </property>
-    <property name="amount" type="Int16" p1:ValidateRequired="true" p1:Guid="24758cc9-cf8a-44ed-adc5-0991ee151a6e">
+    <property name="amount" type="Int32" p1:ValidateRequired="true" p1:Guid="24758cc9-cf8a-44ed-adc5-0991ee151a6e">
       <column name="" />
     </property>
     <property name="status" type="String" p1:ValidateRequired="true" p1:Guid="970047f2-2c9b-46b2-ba47-194c62dd5ff4">
       <column name="" />
     </property>
-    <property name="CustomercustomerId" type="Int16" p1:ValidateRequired="true" p1:Guid="d399c833-4e76-40d0-992a-374a4daa49e5">
-      <column name="" not-null="False" />
-    </property>
   </class>
   <class name="TransactionItem" entity-set="TransactionItems" p1:Guid="b73c102a-ea4b-4d9c-9993-0856320a4be7">
-    <id name="transactionItemId" type="Int16" p1:ValidateRequired="true" p1:Guid="59c40e1a-9640-43b5-966f-bc5af317dfe8">
+    <id name="transactionItemId" type="Int16" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="59c40e1a-9640-43b5-966f-bc5af317dfe8">
       <column name="" />
     </id>
     <property name="transactionId" type="Int16" p1:ValidateRequired="true" p1:Guid="f097d25c-54d1-4215-9b67-bfd1e2b3f119">
@@ -57,12 +54,6 @@
     </property>
     <property name="quantity" type="Int16" p1:ValidateRequired="true" p1:Guid="e8c4d30d-c97e-4015-addc-66bb1881c021">
       <column name="" />
-    </property>
-    <property name="TransactiontransactionId" type="Int16" p1:ValidateRequired="true" p1:Guid="362e309c-d92a-411b-9b71-e53230414b94">
-      <column name="" not-null="False" />
-    </property>
-    <property name="ProductproductId" type="Int16" p1:ValidateRequired="true" p1:Guid="ad1d34b2-6379-4cc4-b989-dce222c51f61">
-      <column name="" not-null="False" />
     </property>
   </class>
   <associations>
@@ -83,7 +74,7 @@
       </end2>
     </association>
     <association name="Product_TransactionItem" cardinality="OneToMany" p1:Guid="33f82e73-52f2-4cc5-904e-625f65e5f0d3">
-      <end1 multiplicity="One" name="Product1" class="TransactionItem" relation-class="Product" constrained="True" lazy="False" p1:Guid="23546b54-2132-424b-8583-8e7b2728bfe6">
+      <end1 multiplicity="One" name="Product" class="TransactionItem" relation-class="Product" constrained="True" lazy="False" p1:Guid="23546b54-2132-424b-8583-8e7b2728bfe6">
         <property name="productId" />
       </end1>
       <end2 multiplicity="Many" name="TransactionItems" class="Product" relation-class="TransactionItem" lazy="False" p1:Guid="069558a1-9e9c-4d6f-a18a-3b8685ceb9cb">

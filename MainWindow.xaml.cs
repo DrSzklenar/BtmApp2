@@ -50,6 +50,7 @@ namespace BtmApp
                 }
                 //else
                 //    ShowData();
+                //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFileName=C:\\Users\\bruhajuj\\Btm.mdf;Integrated Security=True");
             }
         }
 
@@ -60,33 +61,35 @@ namespace BtmApp
 
         private void SeedDb()
         {
-            var c1 = new Customer { Name = "Alice Johnson", Email = "alice@example.com", Phone = "+36-70-1234567" };
-            var c2 = new Customer { Name = "Bob Smith", Email = "bob@example.com", Phone = "+36-30-7654321" };
+            var c1 = new Customer { customerId = 1, name = "Alice Johnson", email = "alice@example.com", phone = "+36-70-1234567" };
+            var c2 = new Customer { customerId = 2, name = "Bob Smith", email = "bob@example.com", phone = "+36-30-7654321" };
 
-            var p1 = new Product { Name = "Laptop", Price = 399990 };
-            var p2 = new Product { Name = "Mouse", Price = 4990 };
-            var p3 = new Product { Name = "Keyboard", Price = 9990 };
+            var p1 = new Product { productId =1, name = "Laptop", price = 399990 };
+            var p2 = new Product { productId = 2, name = "Mouse", price = 4990 };
+            var p3 = new Product { productId = 3, name = "Keyboard", price = 9990 };
 
             var t1 = new Transaction
             {
-                Date = DateTime.Parse("2025-05-01"),
-                Amount = 409980,
-                Status = "Completed",
+                transactionId = 1,
+                date = DateTime.Parse("2025-05-01"),
+                amount = 12543,
+                status = "Completed",
                 Customer = c1
             };
 
             var t2 = new Transaction
             {
-                Date = DateTime.Parse("2025-05-02"),
-                Amount = 14980,
-                Status = "Pending",
+                transactionId = 2,
+                date = DateTime.Parse("2025-05-02"),
+                amount = 14980,
+                status = "Pending",
                 Customer = c2
             };
 
-            var ti1 = new TransactionItem { Transaction = t1, Product = p1, Quantity = 1 };
-            var ti2 = new TransactionItem { Transaction = t1, Product = p2, Quantity = 2 };
-            var ti3 = new TransactionItem { Transaction = t2, Product = p3, Quantity = 1 };
-            var ti4 = new TransactionItem { Transaction = t2, Product = p2, Quantity = 2 };
+            var ti1 = new TransactionItem { transactionItemId = 1, Transaction = t1, Product = p1, quantity = 1 };
+            var ti2 = new TransactionItem { transactionItemId = 2, Transaction = t1, Product = p2, quantity = 2 };
+            var ti3 = new TransactionItem { transactionItemId = 3, Transaction = t2, Product = p3, quantity = 1 };
+            var ti4 = new TransactionItem { transactionItemId = 4, Transaction = t2, Product = p2, quantity = 2 };
 
             cnBusiness.Customers.AddRange(c1, c2);
             cnBusiness.Products.AddRange(p1, p2, p3);

@@ -2,7 +2,15 @@
 <EntityDeveloper Version="7.3.235.0">
   <ModelSettings xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" AppConnectionStringName="csBusiness" ConnectionStringInAppConfig="True" RegenareteConnectionStringInAppConfig="True" TargetFramework="Net80" DetectTPTInheritance="True" SynchronizeNullableReferenceTypes="True" EntityFrameworkCoreVersion="Version8" DetectFunctionBasedColumnDefault="True">
     <Connection ConnectionString="" Provider="" />
-    <Generation />
+    <Generation>
+      <GeneratedFiles>
+        <File Name="Btm.cnBusiness.cs" />
+        <File Name="Btm.Customer.cs" />
+        <File Name="Btm.Product.cs" />
+        <File Name="Btm.Transaction.cs" />
+        <File Name="Btm.TransactionItem.cs" />
+      </GeneratedFiles>
+    </Generation>
     <DatabaseFirstNamingRules>
       <EntitySet PluralizationName="Pluralize" />
       <Class UseSchemaAsPrefix="False" PluralizeCollectionNavigationPropertyName="True" AddConstraintColumnsToNavigationPropertyName="False" RemoveUnderscores="True" AddUnderscores="False" RemoveInvalidCharacters="True" CodeCase="FirstLetterUppercase" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Singularize" />
